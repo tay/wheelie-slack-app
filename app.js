@@ -1,5 +1,6 @@
 const { App } = require('@slack/bolt');
 const { admin } = require('./lib/commands/admin')
+const { listPrivate } = require('./lib/commands/list-private')
 
 // Initializes your app with your bot token and app token
 const app = new App({
@@ -9,6 +10,7 @@ const app = new App({
 });
 
 app.command('/admin', admin);
+app.command('/list-private', listPrivate);
 
 (async () => {
     // Start your app
