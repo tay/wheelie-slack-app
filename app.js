@@ -1,11 +1,12 @@
 const { App } = require('@slack/bolt');
 const { redisStore } = require('./lib/util/redis-store');
 
-const { admin } = require('./lib/commands/admin')
-const { listPrivate } = require('./lib/commands/list-private')
-const { joinPrivate } = require('./lib/commands/join-private')
+const { admin } = require('./lib/commands/admin');
+const { help } = require('./lib/commands/help');
+const { listPrivate } = require('./lib/commands/list-private');
+const { joinPrivate } = require('./lib/commands/join-private');
 
-const { joinPrivateAction } = require('./lib/buttons/join-private/index')
+const { joinPrivateAction } = require('./lib/buttons/join-private/index');
 
 // Initializes your app with your bot token and app token
 const app = new App({
@@ -18,6 +19,7 @@ const app = new App({
 });
 
 app.command('/admin', admin);
+app.command('/help?', help);
 app.command('/list-private', listPrivate);
 app.command('/join-private', joinPrivate);
 
